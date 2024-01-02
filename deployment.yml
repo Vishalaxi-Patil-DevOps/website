@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: happyimage-deployment
+  labels:
+    app: happyimage
+spec:
+  replicas: 2  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: happyimage
+  template:
+    metadata:
+      labels:
+        app: happyimage
+    spec:
+      containers:
+      - name: happyimagecont
+        image: happyimage:latest  # Replace with your local image and tag
+        ports:
+        - containerPort: 80  # Adjust the port if needed
